@@ -16,12 +16,15 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-        print("Firebase")
+        let closeTapGesture = UITapGestureRecognizer(target: self, action: #selector(closeKeyboard))
+        view.addGestureRecognizer(closeTapGesture)
     }
     
     @IBAction func signInButtonPressed(_ sender : UIButton) {
         performSegue(withIdentifier: "toHome", sender: nil)
     }
-
+    @objc func closeKeyboard() {
+        view.endEditing(true)
+    }
 }
 
