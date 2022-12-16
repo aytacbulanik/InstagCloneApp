@@ -30,8 +30,15 @@ class ViewController: UIViewController {
         if mail.isEmpty || password.isEmpty {
             print("Alanlar boş olamaz")
         } else {
-            
-            performSegue(withIdentifier: "toHome", sender: nil)
+            Auth.auth().signIn(withEmail: mail, password: password) {
+                error , result in
+                if error == nil {
+                    print(error, "bir hata var ")
+                    return
+                } else {
+                    self.performSegue(withIdentifier: "toHome", sender: nil)
+                }
+            }
         }
         
     }
