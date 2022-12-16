@@ -14,6 +14,7 @@
 		B409FF8E29491ADD00C0B3D3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B409FF8D29491ADD00C0B3D3 /* Assets.xcassets */; };
 		B409FF9129491ADD00C0B3D3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B409FF8F29491ADD00C0B3D3 /* LaunchScreen.storyboard */; };
 		B409FF9929491C5F00C0B3D3 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = B409FF9829491C5F00C0B3D3 /* GoogleService-Info.plist */; };
+		B47FD7BD294CA16A005E5D1B /* SignUpVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B47FD7BC294CA16A005E5D1B /* SignUpVC.swift */; };
 		B4A37DA5294925010067E306 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = B4A37DA4294925010067E306 /* FirebaseAuth */; };
 		B4A37DA7294925010067E306 /* FirebaseDatabase in Frameworks */ = {isa = PBXBuildFile; productRef = B4A37DA6294925010067E306 /* FirebaseDatabase */; };
 		B4A37DA9294925010067E306 /* FirebaseDatabaseSwift in Frameworks */ = {isa = PBXBuildFile; productRef = B4A37DA8294925010067E306 /* FirebaseDatabaseSwift */; };
@@ -34,6 +35,7 @@
 		B409FF9029491ADD00C0B3D3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B409FF9229491ADD00C0B3D3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B409FF9829491C5F00C0B3D3 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		B47FD7BC294CA16A005E5D1B /* SignUpVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpVC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -74,16 +76,41 @@
 		B409FF8329491ADB00C0B3D3 /* InstagCloneApp */ = {
 			isa = PBXGroup;
 			children = (
+				B47FD7BE294CA174005E5D1B /* View */,
+				B47FD7BB294CA142005E5D1B /* Controller */,
+				B47FD7BA294CA133005E5D1B /* Model */,
 				B409FF8429491ADB00C0B3D3 /* AppDelegate.swift */,
 				B409FF8629491ADB00C0B3D3 /* SceneDelegate.swift */,
-				B409FF8829491ADB00C0B3D3 /* ViewController.swift */,
-				B409FF8A29491ADB00C0B3D3 /* Main.storyboard */,
 				B409FF8D29491ADD00C0B3D3 /* Assets.xcassets */,
 				B409FF8F29491ADD00C0B3D3 /* LaunchScreen.storyboard */,
 				B409FF9229491ADD00C0B3D3 /* Info.plist */,
 				B409FF9829491C5F00C0B3D3 /* GoogleService-Info.plist */,
 			);
 			path = InstagCloneApp;
+			sourceTree = "<group>";
+		};
+		B47FD7BA294CA133005E5D1B /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		B47FD7BB294CA142005E5D1B /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				B409FF8A29491ADB00C0B3D3 /* Main.storyboard */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		B47FD7BE294CA174005E5D1B /* View */ = {
+			isa = PBXGroup;
+			children = (
+				B409FF8829491ADB00C0B3D3 /* ViewController.swift */,
+				B47FD7BC294CA16A005E5D1B /* SignUpVC.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -171,6 +198,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B47FD7BD294CA16A005E5D1B /* SignUpVC.swift in Sources */,
 				B409FF8929491ADB00C0B3D3 /* ViewController.swift in Sources */,
 				B409FF8529491ADB00C0B3D3 /* AppDelegate.swift in Sources */,
 				B409FF8729491ADB00C0B3D3 /* SceneDelegate.swift in Sources */,
