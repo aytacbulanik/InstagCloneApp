@@ -169,7 +169,7 @@
         <!--Item 2-->
         <scene sceneID="FI5-Gj-yY4">
             <objects>
-                <viewController id="8OP-6g-zAJ" sceneMemberID="viewController">
+                <viewController id="8OP-6g-zAJ" customClass="PostVC" customModule="InstagCloneApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="L7D-rQ-sF8">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -180,12 +180,28 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6cR-Qw-voQ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2244" y="391"/>
+            <point key="canvasLocation" x="2244" y="30"/>
+        </scene>
+        <!--Item-->
+        <scene sceneID="1W6-PX-Xj2">
+            <objects>
+                <viewController id="9rG-xx-Rex" customClass="SettingsVC" customModule="InstagCloneApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Hfo-yV-Obc">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="nRh-bL-bvY"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Item" id="5c3-oK-Uih"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="fPY-t1-QNI" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2244" y="742"/>
         </scene>
         <!--Item 1-->
         <scene sceneID="QcP-QU-1c2">
             <objects>
-                <viewController id="XsO-fx-z7F" sceneMemberID="viewController">
+                <viewController id="XsO-fx-z7F" customClass="FeedVC" customModule="InstagCloneApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="1Yd-hU-PIV">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -196,7 +212,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vQH-F9-z5F" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2245" y="-274"/>
+            <point key="canvasLocation" x="2244" y="-789"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="UQk-O7-Yhn">
@@ -210,6 +226,7 @@
                     <connections>
                         <segue destination="XsO-fx-z7F" kind="relationship" relationship="viewControllers" id="aDf-0L-qAU"/>
                         <segue destination="8OP-6g-zAJ" kind="relationship" relationship="viewControllers" id="cDs-ro-Fxb"/>
+                        <segue destination="9rG-xx-Rex" kind="relationship" relationship="viewControllers" id="jBh-EK-eVQ"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jKT-QC-rkI" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
