@@ -21,6 +21,7 @@ class ViewController: UIViewController {
         let closeTapGesture = UITapGestureRecognizer(target: self, action: #selector(closeKeyboard))
         view.addGestureRecognizer(closeTapGesture)
         girisButtonOut.layer.cornerRadius = 8
+       
     }
     
     @IBAction func signInButtonPressed(_ sender : UIButton) {
@@ -50,11 +51,6 @@ class ViewController: UIViewController {
     @objc func closeKeyboard() {
         view.endEditing(true)
     }
-    func uyariVer(message : String) {
-        let alert = UIAlertController(title: "Dikkat !!!", message: message, preferredStyle: .alert)
-        let okButton = UIAlertAction(title: "OK", style: .default)
-        alert.addAction(okButton)
-        present(alert, animated: true)
-    }
+    
 }
 
