@@ -28,14 +28,19 @@ class ViewController: UIViewController {
         guard let password = passwordField.text else {return}
         
         if mail.isEmpty || password.isEmpty {
-            uyariVer(message: "Alanlar Boş Olamaz")
+            let alarm = ErrorStruct.uyariVer(message: "Alanlar boş olamaz")
+            present(alarm, animated: true)
         }else {
             Auth.auth().signIn(withEmail: mail, password: password) {
                 authResult,error in
                 if error != nil {
-                    self.uyariVer(message: error?.localizedDescription ?? "Bilinmiyor")
+                    if let error = error {
+                        let errorMessage = error.localizedDescription
+                        let alarm = ErrorStruct.uyariVer(message: errorMessage)
+                        self.present(alarm, animated: true)
+                    }
                 } else {
-                   performSegue(withIdentifier: "toHome", sender: nil)
+                    self.performSegue(withIdentifier: "toHome", sender: nil)
                 }
             }
         }
