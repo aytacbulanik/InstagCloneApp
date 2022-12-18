@@ -28,22 +28,28 @@ class ViewController: UIViewController {
         guard let password = passwordField.text else {return}
         
         if mail.isEmpty || password.isEmpty {
-            print("Alanlar boş olamaz")
-        } else {
+            uyariVer(message: "Alanlar Boş Olamaz")
+        }else {
             Auth.auth().signIn(withEmail: mail, password: password) {
-                error , result in
+                authResult,error in
                 if error != nil {
-                    print(error, "bir hata var ")
-                    return
+                    self.uyariVer(message: error?.localizedDescription ?? "Bilinmiyor")
                 } else {
-                    self.performSegue(withIdentifier: "toHome", sender: nil)
+                   performSegue(withIdentifier: "toHome", sender: nil)
                 }
             }
         }
         
+        
     }
     @objc func closeKeyboard() {
         view.endEditing(true)
+    }
+    func uyariVer(message : String) {
+        let alert = UIAlertController(title: "Dikkat !!!", message: message, preferredStyle: .alert)
+        let okButton = UIAlertAction(title: "OK", style: .default)
+        alert.addAction(okButton)
+        present(alert, animated: true)
     }
 }
 
