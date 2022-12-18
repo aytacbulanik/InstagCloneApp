@@ -11,7 +11,7 @@
         <!--Home Screen-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="InstagCloneApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="FirstVC" id="BYZ-38-t0r" customClass="ViewController" customModule="InstagCloneApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -173,16 +173,44 @@
                     <view key="view" contentMode="scaleToFill" id="L7D-rQ-sF8">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="X3G-Ea-2Pz">
+                                <rect key="frame" x="49.666666666666657" y="119" width="294" height="228"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="294" id="4Rq-SE-vUo"/>
+                                    <constraint firstAttribute="height" constant="228" id="WQd-hg-F8O"/>
+                                </constraints>
+                            </imageView>
+                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="HTd-XQ-fFp">
+                                <rect key="frame" x="49.666666666666657" y="397" width="294" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="294" id="7JB-vd-Rue"/>
+                                    <constraint firstAttribute="height" constant="40" id="qWT-WX-VqA"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="kpC-RW-0Tf"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="X3G-Ea-2Pz" firstAttribute="centerX" secondItem="L7D-rQ-sF8" secondAttribute="centerX" id="LXv-o0-olB"/>
+                            <constraint firstItem="HTd-XQ-fFp" firstAttribute="top" secondItem="X3G-Ea-2Pz" secondAttribute="bottom" constant="50" id="NdQ-cJ-Kv1"/>
+                            <constraint firstItem="HTd-XQ-fFp" firstAttribute="centerX" secondItem="L7D-rQ-sF8" secondAttribute="centerX" id="qzD-MD-TLH"/>
+                            <constraint firstItem="X3G-Ea-2Pz" firstAttribute="top" secondItem="kpC-RW-0Tf" secondAttribute="top" constant="60" id="xBb-Lr-tkV"/>
+                        </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="" image="square.and.arrow.up.fill" catalog="system" selectedImage="square.and.arrow.up" id="DA2-HO-oAT">
                         <color key="badgeColor" red="0.3170670464" green="1" blue="0.18973969639999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                     </tabBarItem>
+                    <connections>
+                        <outlet property="imageView" destination="X3G-Ea-2Pz" id="RmL-s0-3dy"/>
+                        <outlet property="postField" destination="HTd-XQ-fFp" id="Lef-eW-tfX"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6cR-Qw-voQ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2244" y="30"/>
+            <point key="canvasLocation" x="2243.5114503816794" y="29.577464788732396"/>
         </scene>
         <!--SettingsVC-->
         <scene sceneID="1W6-PX-Xj2">
@@ -191,8 +219,27 @@
                     <view key="view" contentMode="scaleToFill" id="Hfo-yV-Obc">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ADc-vf-acv">
+                                <rect key="frame" x="0.0" y="59" width="393" height="44"/>
+                                <items>
+                                    <navigationItem title="Settings" id="NGL-2p-QJc">
+                                        <barButtonItem key="rightBarButtonItem" title="Logout" id="feQ-Sc-XQk">
+                                            <connections>
+                                                <action selector="logoutPressed:" destination="9rG-xx-Rex" id="3XU-Td-ONS"/>
+                                            </connections>
+                                        </barButtonItem>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="nRh-bL-bvY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="ADc-vf-acv" firstAttribute="leading" secondItem="nRh-bL-bvY" secondAttribute="leading" id="6O5-5M-eUW"/>
+                            <constraint firstItem="ADc-vf-acv" firstAttribute="top" secondItem="nRh-bL-bvY" secondAttribute="top" id="JRq-pj-a9J"/>
+                            <constraint firstItem="ADc-vf-acv" firstAttribute="trailing" secondItem="nRh-bL-bvY" secondAttribute="trailing" id="fUa-pN-glU"/>
+                        </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="" image="scribble.variable" catalog="system" selectedImage="scribble" id="5c3-oK-Uih"/>
                 </viewController>
