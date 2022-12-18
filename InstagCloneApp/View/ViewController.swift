@@ -32,7 +32,7 @@ class ViewController: UIViewController {
         } else {
             Auth.auth().signIn(withEmail: mail, password: password) {
                 error , result in
-                if error == nil {
+                if error != nil {
                     print(error, "bir hata var ")
                     return
                 } else {

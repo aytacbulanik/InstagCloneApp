@@ -166,7 +166,7 @@
             </objects>
             <point key="canvasLocation" x="5" y="768"/>
         </scene>
-        <!--Item 2-->
+        <!--PostVC-->
         <scene sceneID="FI5-Gj-yY4">
             <objects>
                 <viewController id="8OP-6g-zAJ" customClass="PostVC" customModule="InstagCloneApp" customModuleProvider="target" sceneMemberID="viewController">
@@ -176,13 +176,15 @@
                         <viewLayoutGuide key="safeArea" id="kpC-RW-0Tf"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item 2" id="DA2-HO-oAT"/>
+                    <tabBarItem key="tabBarItem" title="" image="square.and.arrow.up.fill" catalog="system" selectedImage="square.and.arrow.up" id="DA2-HO-oAT">
+                        <color key="badgeColor" red="0.3170670464" green="1" blue="0.18973969639999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                    </tabBarItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6cR-Qw-voQ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2244" y="30"/>
         </scene>
-        <!--Item-->
+        <!--SettingsVC-->
         <scene sceneID="1W6-PX-Xj2">
             <objects>
                 <viewController id="9rG-xx-Rex" customClass="SettingsVC" customModule="InstagCloneApp" customModuleProvider="target" sceneMemberID="viewController">
@@ -192,13 +194,13 @@
                         <viewLayoutGuide key="safeArea" id="nRh-bL-bvY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item" id="5c3-oK-Uih"/>
+                    <tabBarItem key="tabBarItem" title="" image="scribble.variable" catalog="system" selectedImage="scribble" id="5c3-oK-Uih"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fPY-t1-QNI" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2244" y="742"/>
         </scene>
-        <!--Item 1-->
+        <!--FeedVC-->
         <scene sceneID="QcP-QU-1c2">
             <objects>
                 <viewController id="XsO-fx-z7F" customClass="FeedVC" customModule="InstagCloneApp" customModuleProvider="target" sceneMemberID="viewController">
@@ -208,7 +210,7 @@
                         <viewLayoutGuide key="safeArea" id="yKZ-7B-qYB"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item 1" id="7gq-9M-Vub"/>
+                    <tabBarItem key="tabBarItem" title="" image="folder.fill" catalog="system" selectedImage="folder" id="7gq-9M-Vub"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vQH-F9-z5F" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -222,6 +224,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="selectedImageTintColor" red="0.46202266219999999" green="0.83828371759999998" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </tabBar>
                     <connections>
                         <segue destination="XsO-fx-z7F" kind="relationship" relationship="viewControllers" id="aDf-0L-qAU"/>
@@ -235,6 +238,12 @@
         </scene>
     </scenes>
     <resources>
+        <image name="folder" catalog="system" width="128" height="96"/>
+        <image name="folder.fill" catalog="system" width="128" height="96"/>
+        <image name="scribble" catalog="system" width="128" height="117"/>
+        <image name="scribble.variable" catalog="system" width="128" height="119"/>
+        <image name="square.and.arrow.up" catalog="system" width="115" height="128"/>
+        <image name="square.and.arrow.up.fill" catalog="system" width="115" height="128"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
