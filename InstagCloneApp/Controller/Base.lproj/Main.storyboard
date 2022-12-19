@@ -190,12 +190,25 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FMS-j2-TR1">
+                                <rect key="frame" x="121.66666666666669" y="487" width="150" height="35"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="150" id="UCq-0M-lzr"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Post"/>
+                                <connections>
+                                    <action selector="postButtonPressed:" destination="8OP-6g-zAJ" eventType="touchUpInside" id="dVV-Do-zg8"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="kpC-RW-0Tf"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="X3G-Ea-2Pz" firstAttribute="centerX" secondItem="L7D-rQ-sF8" secondAttribute="centerX" id="LXv-o0-olB"/>
                             <constraint firstItem="HTd-XQ-fFp" firstAttribute="top" secondItem="X3G-Ea-2Pz" secondAttribute="bottom" constant="50" id="NdQ-cJ-Kv1"/>
+                            <constraint firstItem="FMS-j2-TR1" firstAttribute="top" secondItem="HTd-XQ-fFp" secondAttribute="bottom" constant="50" id="j7X-on-g9q"/>
+                            <constraint firstItem="FMS-j2-TR1" firstAttribute="centerX" secondItem="L7D-rQ-sF8" secondAttribute="centerX" id="qoc-Jy-ELK"/>
                             <constraint firstItem="HTd-XQ-fFp" firstAttribute="centerX" secondItem="L7D-rQ-sF8" secondAttribute="centerX" id="qzD-MD-TLH"/>
                             <constraint firstItem="X3G-Ea-2Pz" firstAttribute="top" secondItem="kpC-RW-0Tf" secondAttribute="top" constant="60" id="xBb-Lr-tkV"/>
                         </constraints>
@@ -205,6 +218,7 @@
                     </tabBarItem>
                     <connections>
                         <outlet property="imageView" destination="X3G-Ea-2Pz" id="RmL-s0-3dy"/>
+                        <outlet property="postButonOut" destination="FMS-j2-TR1" id="Lga-qf-Xye"/>
                         <outlet property="postField" destination="HTd-XQ-fFp" id="Lef-eW-tfX"/>
                     </connections>
                 </viewController>

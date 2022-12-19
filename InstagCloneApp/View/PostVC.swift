@@ -11,6 +11,7 @@ class PostVC: UIViewController , UINavigationControllerDelegate, UIImagePickerCo
 
     @IBOutlet var imageView: UIImageView!
     @IBOutlet var postField: UITextField!
+    @IBOutlet var postButonOut: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,7 +28,12 @@ class PostVC: UIViewController , UINavigationControllerDelegate, UIImagePickerCo
         self.present(picker, animated: true)
     }
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
-        imageView.image = info[UIImagePickerController.InfoKey.editedImage] as? UIImage
+        imageView.image = info[.originalImage] as? UIImage
         self.dismiss(animated: true)
     }
+    
+    @IBAction func postButtonPressed(_ sender: UIButton) {
+        
+    }
+    
 }
