@@ -6,9 +6,10 @@
 //
 
 import UIKit
+import FirebaseStorage
 
 class PostVC: UIViewController , UINavigationControllerDelegate, UIImagePickerControllerDelegate{
-
+    
     @IBOutlet var imageView: UIImageView!
     @IBOutlet var postField: UITextField!
     @IBOutlet var postButonOut: UIButton!
@@ -33,7 +34,28 @@ class PostVC: UIViewController , UINavigationControllerDelegate, UIImagePickerCo
     }
     
     @IBAction func postButtonPressed(_ sender: UIButton) {
+        let storage = Storage.storage()
+        let storageRefrance = storage.reference()
+        let mediaFolder = storageRefrance.child("media")
+        if let data = imageView.image?.jpegData(compressionQuality: 0.5) {
+            let imageRefrence = mediaFolder.child("image.jpg")
+            imageRefrence.putData(data) { storageData, error in
+                if error != nil {
+                    let hata = ErrorStruct.uyariVer(message: error?.localizedDescription ?? "Bilinmiyor")
+                    self.present(hata, animated: true)
+                } else {
+                    imageRefrence.downloadURL { url, error in
+                        if error != nil {
+                            let hata = ErrorStruct.uyariVer(message: error?.localizedDescription ?? "Bilinmiyor")
+                            self.present(hata, animated: true)
+                        } else {
+                            let url = url?.absoluteString
+                            print(url)
+                        }
+                    }
+                }
+            }
+        }
         
     }
-    
 }
