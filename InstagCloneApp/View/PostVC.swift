@@ -6,7 +6,9 @@
 //
 
 import UIKit
+import FirebaseFirestore
 import FirebaseStorage
+import FirebaseAuth
 
 class PostVC: UIViewController , UINavigationControllerDelegate, UIImagePickerControllerDelegate{
     
@@ -38,7 +40,8 @@ class PostVC: UIViewController , UINavigationControllerDelegate, UIImagePickerCo
         let storageRefrance = storage.reference()
         let mediaFolder = storageRefrance.child("media")
         if let data = imageView.image?.jpegData(compressionQuality: 0.5) {
-            let imageRefrence = mediaFolder.child("image.jpg")
+            let imageUuid = UUID().uuidString
+            let imageRefrence = mediaFolder.child("\(imageUuid).jpg")
             imageRefrence.putData(data) { storageData, error in
                 if error != nil {
                     let hata = ErrorStruct.uyariVer(message: error?.localizedDescription ?? "Bilinmiyor")
@@ -49,8 +52,28 @@ class PostVC: UIViewController , UINavigationControllerDelegate, UIImagePickerCo
                             let hata = ErrorStruct.uyariVer(message: error?.localizedDescription ?? "Bilinmiyor")
                             self.present(hata, animated: true)
                         } else {
-                            let url = url?.absoluteString
-                            print(url)
+                            let imageUrl = url?.absoluteString
+                            
+                            //database
+                            
+                            let firestoreDatabase = Firestore.firestore()
+                            var firestoreRefrence : DocumentReference? = nil
+                            let firestorePost = ["imageUrl" : imageUrl!,
+                                                 "postedBy" : Auth.auth().currentUser!.email!,
+                                                 "postComment" : self.postField.text!,
+                                                 "date" : Date(),
+                                                 "likes" : 0
+                            ] as [String:Any]
+                            firestoreRefrence = firestoreDatabase.collection("Posts").addDocument(data: firestorePost) {
+                                error in
+                                if error != nil {
+                                    let hata = ErrorStruct.uyariVer(message: error?.localizedDescription ?? "Bilinmiyor")
+                                    self.present(hata, animated: true)
+                                }
+                            }
+                            
+                            
+                            
                         }
                     }
                 }
