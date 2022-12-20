@@ -10,6 +10,8 @@ import Firebase
 
 class FeedVC: UIViewController {
 
+    @IBOutlet var tableView: UITableView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
