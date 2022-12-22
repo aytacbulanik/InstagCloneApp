@@ -9,6 +9,12 @@ import UIKit
 
 class FeedCell: UITableViewCell {
 
+    
+    @IBOutlet var userMailLabel : UILabel!
+    @IBOutlet var usercommentLabel : UILabel!
+    @IBOutlet var postImage : UIImageView!
+    @IBOutlet var likeCountLabel : UILabel!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
