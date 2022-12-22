@@ -34,6 +34,11 @@ class FeedVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
                 let hata = ErrorStruct.uyariVer(message: "veri Alınamadı")
                 self.present(hata, animated: true)
             }else {
+                self.imageUrlArray.removeAll()
+                self.emailArray.removeAll()
+                self.likeCountArray.removeAll()
+                self.commentArray.removeAll()
+                
                 if snapShot?.isEmpty != true && snapShot != nil {
                     for document in snapShot!.documents {
                         if let postedBy = document.get("postedBy") as? String {
