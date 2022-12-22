@@ -331,6 +331,7 @@
                                             <outlet property="likeCountLabel" destination="EOl-j4-Skg" id="Won-pR-GM0"/>
                                             <outlet property="postImage" destination="OAJ-Vd-fgw" id="P4J-m9-2W0"/>
                                             <outlet property="userMailLabel" destination="Bf5-Ec-J4Z" id="dwG-KW-SCC"/>
+                                            <outlet property="usercommentLabel" destination="DRr-z7-9g2" id="6gJ-uO-6pR"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>

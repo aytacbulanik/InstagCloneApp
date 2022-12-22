@@ -35,7 +35,7 @@ class SignUpVC: UIViewController {
         Auth.auth().createUser(withEmail: mail, password: password1) {
             (result,error) in
             if error == nil {
-                print("bir hata oluştu", error?.localizedDescription)
+                print("bir hata oluştu", error?.localizedDescription ?? "Bilinmiyor")
             }
             
             
