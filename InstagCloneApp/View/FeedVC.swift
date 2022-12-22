@@ -7,6 +7,7 @@
 
 import UIKit
 import Firebase
+import SDWebImage
 
 class FeedVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
 
@@ -65,7 +66,7 @@ class FeedVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
         cell.userMailLabel.text = emailArray[indexPath.row]
         cell.usercommentLabel.text = commentArray[indexPath.row]
         cell.likeCountLabel.text = String(likeCountArray[indexPath.row])
-        cell.postImage.image = UIImage(named: "selected.png")
+        cell.postImage.sd_setImage(with: URL(string: imageUrlArray[indexPath.row]))
         return cell
     }
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
