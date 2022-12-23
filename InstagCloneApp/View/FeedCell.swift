@@ -14,6 +14,7 @@ class FeedCell: UITableViewCell {
     @IBOutlet var usercommentLabel : UILabel!
     @IBOutlet var postImage : UIImageView!
     @IBOutlet var likeCountLabel : UILabel!
+    @IBOutlet weak var documentIdLabel: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -26,4 +27,7 @@ class FeedCell: UITableViewCell {
         // Configure the view for the selected state
     }
 
+    @IBAction func likeButtonCliked(_ sender: UIButton) {
+        print("Like Button Clikked")
+    }
 }

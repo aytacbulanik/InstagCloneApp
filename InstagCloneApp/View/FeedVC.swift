@@ -17,6 +17,7 @@ class FeedVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
     var commentArray = [String]()
     var likeCountArray = [Int]()
     var imageUrlArray = [String]()
+    var documendIdArray = [String]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,7 +30,7 @@ class FeedVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
     func getDataFirestore() {
         let fireStoreDatabase = Firestore.firestore()
         
-        fireStoreDatabase.collection("Posts").addSnapshotListener { snapShot, error in
+        fireStoreDatabase.collection("Posts").order(by: "date", descending: true).addSnapshotListener { snapShot, error in
             if error != nil {
                 let hata = ErrorStruct.uyariVer(message: "veri Alınamadı")
                 self.present(hata, animated: true)
@@ -38,9 +39,13 @@ class FeedVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
                 self.emailArray.removeAll()
                 self.likeCountArray.removeAll()
                 self.commentArray.removeAll()
+                self.documendIdArray.removeAll()
                 
                 if snapShot?.isEmpty != true && snapShot != nil {
+                    
                     for document in snapShot!.documents {
+                        let documentId = document.documentID
+                        self.documendIdArray.append(documentId)
                         if let postedBy = document.get("postedBy") as? String {
                             self.emailArray.append(postedBy)
                         }
@@ -72,6 +77,7 @@ class FeedVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
         cell.usercommentLabel.text = commentArray[indexPath.row]
         cell.likeCountLabel.text = String(likeCountArray[indexPath.row])
         cell.postImage.sd_setImage(with: URL(string: imageUrlArray[indexPath.row]))
+        cell.documentIdLabel.text = documendIdArray[indexPath.row]
         return cell
     }
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
