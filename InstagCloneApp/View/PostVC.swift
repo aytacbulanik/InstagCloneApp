@@ -58,13 +58,13 @@ class PostVC: UIViewController , UINavigationControllerDelegate, UIImagePickerCo
                             
                             let firestoreDatabase = Firestore.firestore()
                             var firestoreRefrence : DocumentReference? = nil
-                            let firestorePost = ["imageUrl" : imageUrl!,
-                                                 "postedBy" : Auth.auth().currentUser!.email!,
-                                                 "postComment" : self.postField.text!,
-                                                 "date" : FieldValue.serverTimestamp(),
-                                                 "likes" : 0
+                            let firestorePost = [firebaseFieldConstant.imageUrl : imageUrl!,
+                                                 firebaseFieldConstant.postedBy : Auth.auth().currentUser!.email!,
+                                                 firebaseFieldConstant.postComment : self.postField.text!,
+                                                 firebaseFieldConstant.date : FieldValue.serverTimestamp(),
+                                                 firebaseFieldConstant.likes : 0
                             ] as [String:Any]
-                            firestoreRefrence = firestoreDatabase.collection("Posts").addDocument(data: firestorePost) {
+                            firestoreRefrence = firestoreDatabase.collection(firebaseColConstant.posts).addDocument(data: firestorePost) {
                                 error in
                                 if error != nil {
                                     let hata = ErrorStruct.uyariVer(message: error?.localizedDescription ?? "Bilinmiyor")
