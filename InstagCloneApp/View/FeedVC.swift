@@ -8,16 +8,13 @@
 import UIKit
 import Firebase
 import SDWebImage
+import FirebaseDatabaseSwift
 
 class FeedVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
 
     @IBOutlet var tableView: UITableView!
     
-    var emailArray = [String]()
-    var commentArray = [String]()
-    var likeCountArray = [Int]()
-    var imageUrlArray = [String]()
-    var documendIdArray = [String]()
+    var postsArray = [PostStruct]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,32 +32,24 @@ class FeedVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
                 let hata = ErrorStruct.uyariVer(message: "veri Alınamadı")
                 self.present(hata, animated: true)
             }else {
-                self.imageUrlArray.removeAll()
-                self.emailArray.removeAll()
-                self.likeCountArray.removeAll()
-                self.commentArray.removeAll()
-                self.documendIdArray.removeAll()
+                
+                self.postsArray.removeAll(keepingCapacity: false)
                 
                 if snapShot?.isEmpty != true && snapShot != nil {
                     
                     for document in snapShot!.documents {
-                        let documentId = document.documentID
-                        self.documendIdArray.append(documentId)
-                        if let postedBy = document.get("postedBy") as? String {
-                            self.emailArray.append(postedBy)
-                        }
-                        if let postComment = document.get("postComment") as? String {
-                            self.commentArray.append(postComment)
-                        }
-                        if let imageUrl = document.get("imageUrl") as? String {
-                            self.imageUrlArray.append(imageUrl)
-                        }
-                        if let postLikeCount = document.get("likes") as? Int {
-                            self.likeCountArray.append(postLikeCount)
-                        }
-                        
+                        let postId = document.documentID
+                        guard let postedBy = document.get(firebaseFieldConstant.postedBy) as? String else {return}
+                        guard let postComment = document.get(firebaseFieldConstant.postComment) as? String else {return}
+                        guard let imageUrl = document.get(firebaseFieldConstant.imageUrl) as? String else {return}
+                        guard let postLikeCount = document.get(firebaseFieldConstant.likes) as? Int else {return}
+                        /*guard let postDate = document.get(firebaseFieldConstant.date) as? Date else {return}
+                        print(postDate)*/
+                        let newPost = PostStruct(postedBy: postedBy, postComment: postComment, postImageUrl: imageUrl, postLikeCount: postLikeCount, postDate: nil, postId: postId)
+                        self.postsArray.append(newPost)
                     }
                     self.tableView.reloadData()
+                    
                 }
             }
             
@@ -68,16 +57,17 @@ class FeedVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return emailArray.count
+        return postsArray.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "feedCell", for: indexPath) as! FeedCell
-        cell.userMailLabel.text = emailArray[indexPath.row]
-        cell.usercommentLabel.text = commentArray[indexPath.row]
-        cell.likeCountLabel.text = String(likeCountArray[indexPath.row])
-        cell.postImage.sd_setImage(with: URL(string: imageUrlArray[indexPath.row]))
-        cell.documentIdLabel.text = documendIdArray[indexPath.row]
+        let indexPathRow = postsArray[indexPath.row]
+        cell.userMailLabel.text = indexPathRow.postedBy
+        cell.usercommentLabel.text = indexPathRow.postComment
+        cell.likeCountLabel.text = String(indexPathRow.postLikeCount)
+        cell.postImage.sd_setImage(with: URL(string: indexPathRow.postImageUrl))
+        cell.documentIdLabel.text = indexPathRow.postId
         return cell
     }
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {

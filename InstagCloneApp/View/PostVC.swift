@@ -61,7 +61,7 @@ class PostVC: UIViewController , UINavigationControllerDelegate, UIImagePickerCo
                             let firestorePost = [firebaseFieldConstant.imageUrl : imageUrl!,
                                                  firebaseFieldConstant.postedBy : Auth.auth().currentUser!.email!,
                                                  firebaseFieldConstant.postComment : self.postField.text!,
-                                                 firebaseFieldConstant.date : FieldValue.serverTimestamp(),
+                                                 firebaseFieldConstant.date : Date,
                                                  firebaseFieldConstant.likes : 0
                             ] as [String:Any]
                             firestoreRefrence = firestoreDatabase.collection(firebaseColConstant.posts).addDocument(data: firestorePost) {

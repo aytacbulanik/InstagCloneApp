@@ -6,12 +6,13 @@
 //
 
 import Foundation
+import FirebaseDatabaseSwift
 
 struct PostStruct {
     var postedBy : String
     var postComment : String
-    var imageUrl : String
-    var likeCount : Int
-    var postDate : Date
+    var postImageUrl : String
+    var postLikeCount : Int
+    var postDate : Date?
     var postId : String
 }
