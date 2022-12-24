@@ -17,6 +17,8 @@
 		B45DB327294F5BF100ACA72D /* ErrorStruct.swift in Sources */ = {isa = PBXBuildFile; fileRef = B45DB326294F5BF100ACA72D /* ErrorStruct.swift */; };
 		B45DB32A29548DAD00ACA72D /* SDWebImage in Frameworks */ = {isa = PBXBuildFile; productRef = B45DB32929548DAD00ACA72D /* SDWebImage */; };
 		B45DB32C29548DAD00ACA72D /* SDWebImageMapKit in Frameworks */ = {isa = PBXBuildFile; productRef = B45DB32B29548DAD00ACA72D /* SDWebImageMapKit */; };
+		B46DAE6B2956F3BB002E2463 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = B46DAE6A2956F3BB002E2463 /* Constants.swift */; };
+		B46DAE6D2956F4ED002E2463 /* PostStruct.swift in Sources */ = {isa = PBXBuildFile; fileRef = B46DAE6C2956F4ED002E2463 /* PostStruct.swift */; };
 		B47FD7BD294CA16A005E5D1B /* SignUpVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B47FD7BC294CA16A005E5D1B /* SignUpVC.swift */; };
 		B494FAD8294E56CB00EFDB3E /* FeedVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B494FAD7294E56CB00EFDB3E /* FeedVC.swift */; };
 		B494FADA294E56DE00EFDB3E /* PostVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B494FAD9294E56DE00EFDB3E /* PostVC.swift */; };
@@ -43,6 +45,8 @@
 		B409FF9229491ADD00C0B3D3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B409FF9829491C5F00C0B3D3 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		B45DB326294F5BF100ACA72D /* ErrorStruct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ErrorStruct.swift; path = InstagCloneApp/View/ErrorStruct.swift; sourceTree = SOURCE_ROOT; };
+		B46DAE6A2956F3BB002E2463 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Constants.swift; path = InstagCloneApp/View/Constants.swift; sourceTree = SOURCE_ROOT; };
+		B46DAE6C2956F4ED002E2463 /* PostStruct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PostStruct.swift; path = InstagCloneApp/View/PostStruct.swift; sourceTree = SOURCE_ROOT; };
 		B47FD7BC294CA16A005E5D1B /* SignUpVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpVC.swift; sourceTree = "<group>"; };
 		B494FAD7294E56CB00EFDB3E /* FeedVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedVC.swift; sourceTree = "<group>"; };
 		B494FAD9294E56DE00EFDB3E /* PostVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostVC.swift; sourceTree = "<group>"; };
@@ -107,6 +111,8 @@
 			isa = PBXGroup;
 			children = (
 				B45DB326294F5BF100ACA72D /* ErrorStruct.swift */,
+				B46DAE6A2956F3BB002E2463 /* Constants.swift */,
+				B46DAE6C2956F4ED002E2463 /* PostStruct.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -225,7 +231,9 @@
 				B409FF8929491ADB00C0B3D3 /* ViewController.swift in Sources */,
 				B45DB327294F5BF100ACA72D /* ErrorStruct.swift in Sources */,
 				B494FAD8294E56CB00EFDB3E /* FeedVC.swift in Sources */,
+				B46DAE6B2956F3BB002E2463 /* Constants.swift in Sources */,
 				B409FF8529491ADB00C0B3D3 /* AppDelegate.swift in Sources */,
+				B46DAE6D2956F4ED002E2463 /* PostStruct.swift in Sources */,
 				B409FF8729491ADB00C0B3D3 /* SceneDelegate.swift in Sources */,
 				B494FADC294E56EF00EFDB3E /* SettingsVC.swift in Sources */,
 				B4FE552A2951C2B600B74A99 /* FeedCell.swift in Sources */,
