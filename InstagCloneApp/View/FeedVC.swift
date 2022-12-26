@@ -43,7 +43,6 @@ class FeedVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
                         guard let postComment = document.get(firebaseFieldConstant.postComment) as? String else {return}
                         guard let imageUrl = document.get(firebaseFieldConstant.imageUrl) as? String else {return}
                         guard let postLikeCount = document.get(firebaseFieldConstant.likes) as? Int else {return}
-                        print("--------------")
                         guard let postDate = document.get(firebaseFieldConstant.date) as? Timestamp else {return}
                         let postChangedDate = postDate.dateValue()
                         let newPost = PostStruct(postedBy: postedBy, postComment: postComment, postImageUrl: imageUrl, postLikeCount: postLikeCount, postDate: postChangedDate, postId: postId)
@@ -73,6 +72,13 @@ class FeedVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
     }
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 305
+    }
+    
+    func dateFormat(date : Date) -> String {
+        let formatter = DateFormatter()
+        formatter.dateStyle = .long
+        let postDate = formatter.string(from: date)
+        return postDate
     }
     
 
