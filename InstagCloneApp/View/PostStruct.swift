@@ -13,6 +13,6 @@ struct PostStruct {
     var postComment : String
     var postImageUrl : String
     var postLikeCount : Int
-    var postDate : ServerTimestamp
+    var postDate : Date
     var postId : String
 }

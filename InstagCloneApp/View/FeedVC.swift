@@ -44,9 +44,9 @@ class FeedVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
                         guard let imageUrl = document.get(firebaseFieldConstant.imageUrl) as? String else {return}
                         guard let postLikeCount = document.get(firebaseFieldConstant.likes) as? Int else {return}
                         print("--------------")
-                        guard let postDate = document.get(firebaseFieldConstant.date) as? ServerTimestamp else {return}
-                        print(postDate)
-                        let newPost = PostStruct(postedBy: postedBy, postComment: postComment, postImageUrl: imageUrl, postLikeCount: postLikeCount, postDate: postDate, postId: postId)
+                        guard let postDate = document.get(firebaseFieldConstant.date) as? Timestamp else {return}
+                        let postChangedDate = postDate.dateValue()
+                        let newPost = PostStruct(postedBy: postedBy, postComment: postComment, postImageUrl: imageUrl, postLikeCount: postLikeCount, postDate: postChangedDate, postId: postId)
                         self.postsArray.append(newPost)
                     }
                     self.tableView.reloadData()
